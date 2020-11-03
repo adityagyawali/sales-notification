@@ -2,14 +2,10 @@ require('dotenv').config()
 const axios = require('axios')
 const express = require('express');
 const app = express()
-const {IncomingWebhook} = require('@slack/webhook')
+const { IncomingWebhook } = require('@slack/webhook')
 const url = process.env.SLACK_WEBHOOK_URL
-console.log({url})
+
 const webhook = new IncomingWebhook(url);
-
-const cors = require('cors')
-
-app.use(cors())
 
 app.get('/',(req, res) => {
   res.send('working')
